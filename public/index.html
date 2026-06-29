@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>นมข้น VTuber</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;600;900&family=Sarabun:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+        <link rel="stylesheet" href="css/style.css">
+<base target="_blank">
+</head>
+<body>
+
+<!-- ====== LEFT: VTUBER PANEL ====== -->
+<section class="vtuber-panel" aria-label="VTuber Character">
+    <canvas id="bgCanvas" aria-hidden="true"></canvas>
+
+    <div class="char-container" id="charWrap">
+        <div class="char-glow"></div>
+        <div class="sparkle" style="top:10%;left:15%;animation-delay:0s"></div>
+        <div class="sparkle" style="top:18%;right:12%;animation-delay:1.2s"></div>
+        <div class="sparkle" style="top:55%;left:8%;animation-delay:2.4s"></div>
+        <div class="sparkle" style="top:50%;right:6%;animation-delay:.7s"></div>
+        <div class="sparkle" style="top:78%;left:18%;animation-delay:1.8s"></div>
+
+        <svg class="char-svg" id="charSvg" viewBox="0 0 400 520" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="นมข้น VTuber">
+            <defs>
+                <clipPath id="cL"><ellipse id="csL" cx="157" cy="242" rx="32" ry="36"/></clipPath>
+                <clipPath id="cR"><ellipse id="csR" cx="243" cy="242" rx="32" ry="36"/></clipPath>
+                <linearGradient id="gH" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stop-color="#FF8CB5"/><stop offset="100%" stop-color="#D84070"/>
+                </linearGradient>
+                <linearGradient id="gHS" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stop-color="#FF6B9D"/><stop offset="100%" stop-color="#C03060"/>
+                </linearGradient>
+                <radialGradient id="gI" cx="50%" cy="38%" r="55%">
+                    <stop offset="0%" stop-color="#60FFD8"/><stop offset="50%" stop-color="#00E5B0"/><stop offset="100%" stop-color="#008868"/>
+                </radialGradient>
+                <radialGradient id="gF" cx="50%" cy="40%" r="55%">
+                    <stop offset="0%" stop-color="#FFE2D0"/><stop offset="100%" stop-color="#F5C4A8"/>
+                </radialGradient>
+                <filter id="fS"><feDropShadow dx="0" dy="3" stdDeviation="4" flood-color="#000" flood-opacity=".12"/></filter>
+            </defs>
+
+            <!-- Back hair -->
+            <g class="hair-sway-l"><path d="M92,160 Q68,280 74,430 Q78,458 102,462 Q108,435 106,370 Q108,290 118,195Z" fill="url(#gHS)"/></g>
+            <g class="hair-sway-r"><path d="M308,160 Q332,280 326,430 Q322,458 298,462 Q292,435 294,370 Q292,290 282,195Z" fill="url(#gHS)"/></g>
+            <ellipse cx="200" cy="155" rx="138" ry="100" fill="url(#gH)"/>
+
+            <!-- Cat ears -->
+            <g class="ear-l"><path d="M118,115 L96,42 L152,92Z" fill="url(#gH)" stroke="#C03060" stroke-width="1"/><path d="M121,110 L104,55 L147,94Z" fill="#FFB8D4"/></g>
+            <g class="ear-r"><path d="M282,115 L304,42 L248,92Z" fill="url(#gH)" stroke="#C03060" stroke-width="1"/><path d="M279,110 L296,55 L253,94Z" fill="#FFB8D4"/></g>
+
+            <!-- Neck & shoulders -->
+            <rect x="177" y="372" width="46" height="55" rx="12" fill="#F0B8A0"/>
+            <path d="M185,410 Q200,418 215,410" stroke="#E0A090" stroke-width="1" fill="none" opacity=".4"/>
+            <path d="M128,435 Q140,412 177,406 L223,406 Q260,412 272,435 L282,490 Q200,500 118,490Z" fill="#1e1232"/>
+            <path d="M128,435 Q140,412 177,406 L223,406 Q260,412 272,435 L275,450 Q200,442 125,450Z" fill="#281842"/>
+            <path d="M183,406 L200,432 L217,406" fill="none" stroke="#3a2660" stroke-width="2"/>
+            <circle cx="200" cy="438" r="5" fill="#00E5B0" opacity=".9"/>
+            <circle cx="200" cy="438" r="3" fill="#00FFD0"/>
+            <line x1="165" y1="418" x2="162" y2="440" stroke="#3a2660" stroke-width="1.5"/>
+            <line x1="235" y1="418" x2="238" y2="440" stroke="#3a2660" stroke-width="1.5"/>
+
+            <!-- Face -->
+            <ellipse cx="200" cy="268" rx="108" ry="132" fill="url(#gF)" filter="url(#fS)"/>
+            <path d="M95,210 Q140,230 200,226 Q260,230 305,210 Q280,222 200,218 Q120,222 95,210Z" fill="rgba(180,130,110,0.1)"/>
+
+            <!-- Ears + earrings -->
+            <ellipse cx="96" cy="262" rx="12" ry="20" fill="#F5C4A8"/>
+            <ellipse cx="96" cy="262" rx="7" ry="13" fill="#F0A890"/>
+            <circle cx="96" cy="286" r="4" fill="#00E5B0" opacity=".8"/>
+            <ellipse cx="304" cy="262" rx="12" ry="20" fill="#F5C4A8"/>
+            <ellipse cx="304" cy="262" rx="7" ry="13" fill="#F0A890"/>
+            <circle cx="304" cy="286" r="4" fill="#00E5B0" opacity=".8"/>
+
+            <!-- Blush -->
+            <ellipse id="blL" cx="128" cy="292" rx="22" ry="10" fill="rgba(255,130,150,0.28)"/>
+            <ellipse id="blR" cx="272" cy="292" rx="22" ry="10" fill="rgba(255,130,150,0.28)"/>
+
+            <!-- Left eye -->
+            <g clip-path="url(#cL)">
+                <ellipse cx="157" cy="242" rx="32" ry="36" fill="white"/>
+                <g id="irL">
+                    <ellipse cx="157" cy="246" rx="19" ry="22" fill="url(#gI)"/>
+                    <ellipse cx="157" cy="246" rx="19" ry="22" fill="none" stroke="#008868" stroke-width=".6" opacity=".3"/>
+                    <ellipse cx="157" cy="246" rx="14" ry="16" fill="none" stroke="#00FFD0" stroke-width=".4" opacity=".25"/>
+                    <ellipse cx="157" cy="246" rx="8.5" ry="10.5" fill="#0e0e22"/>
+                    <ellipse cx="149" cy="237" rx="7" ry="8" fill="white" opacity=".88"/>
+                    <ellipse cx="163" cy="253" rx="3" ry="3.5" fill="white" opacity=".55"/>
+                    <ellipse cx="154" cy="248" rx="1.5" ry="2" fill="white" opacity=".3"/>
+                </g>
+            </g>
+            <path id="laL" d="M124,238 Q138,218 157,214 Q176,218 190,238" stroke="#1e0e2e" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+            <path d="M132,252 Q157,266 182,252" stroke="#2e1e3e" stroke-width="1.2" fill="none" opacity=".25"/>
+            <path d="M124,238 Q120,232 118,228" stroke="#1e0e2e" stroke-width="2" fill="none" stroke-linecap="round"/>
+            <path d="M190,238 Q194,232 196,230" stroke="#1e0e2e" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+
+            <!-- Right eye -->
+            <g clip-path="url(#cR)">
+                <ellipse cx="243" cy="242" rx="32" ry="36" fill="white"/>
+                <g id="irR">
+                    <ellipse cx="243" cy="246" rx="19" ry="22" fill="url(#gI)"/>
+                    <ellipse cx="243" cy="246" rx="19" ry="22" fill="none" stroke="#008868" stroke-width=".6" opacity=".3"/>
+                    <ellipse cx="243" cy="246" rx="14" ry="16" fill="none" stroke="#00FFD0" stroke-width=".4" opacity=".25"/>
+                    <ellipse cx="243" cy="246" rx="8.5" ry="10.5" fill="#0e0e22"/>
+                    <ellipse cx="235" cy="237" rx="7" ry="8" fill="white" opacity=".88"/>
+                    <ellipse cx="249" cy="253" rx="3" ry="3.5" fill="white" opacity=".55"/>
+                    <ellipse cx="240" cy="248" rx="1.5" ry="2" fill="white" opacity=".3"/>
+                </g>
+            </g>
+            <path id="laR" d="M210,238 Q224,218 243,214 Q262,218 276,238" stroke="#1e0e2e" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+            <path d="M218,252 Q243,266 268,252" stroke="#2e1e3e" stroke-width="1.2" fill="none" opacity=".25"/>
+            <path d="M210,238 Q206,232 204,228" stroke="#1e0e2e" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+            <path d="M276,238 Q280,232 282,228" stroke="#1e0e2e" stroke-width="2" fill="none" stroke-linecap="round"/>
+
+            <!-- Eyebrows -->
+            <path id="bwL" d="M128,198 Q148,185 178,194" stroke="#4a2840" stroke-width="3" fill="none" stroke-linecap="round"/>
+            <path id="bwR" d="M222,194 Q252,185 272,198" stroke="#4a2840" stroke-width="3" fill="none" stroke-linecap="round"/>
+
+            <!-- Nose -->
+            <path d="M198,282 Q200,287 202,282" stroke="#DCA890" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+
+            <!-- Mouth -->
+            <path id="mouth" d="M184,316 Q200,324 216,316" stroke="#D86878" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+
+            <!-- Bangs -->
+            <g class="hair-bangs">
+                <path d="M86,162 Q120,128 200,120 Q280,128 314,162 L305,200 Q275,178 250,192 Q228,170 200,168 Q172,170 150,192 Q125,178 95,200Z" fill="url(#gH)"/>
+                <path d="M130,145 Q142,168 148,200" stroke="#D84070" stroke-width=".8" fill="none" opacity=".35"/>
+                <path d="M170,135 Q178,165 182,200" stroke="#D84070" stroke-width=".8" fill="none" opacity=".3"/>
+                <path d="M200,130 Q200,160 200,200" stroke="#D84070" stroke-width=".8" fill="none" opacity=".25"/>
+                <path d="M230,135 Q222,165 218,200" stroke="#D84070" stroke-width=".8" fill="none" opacity=".3"/>
+                <path d="M270,145 Q258,168 252,200" stroke="#D84070" stroke-width=".8" fill="none" opacity=".35"/>
+                <path d="M125,145 Q165,132 210,138 Q195,152 155,152Z" fill="white" opacity=".12"/>
+                <path d="M230,136 Q265,130 280,142 Q268,152 242,150Z" fill="white" opacity=".1"/>
+            </g>
+
+            <!-- Side hair front -->
+            <g class="hair-sway-l">
+                <path d="M98,170 Q82,270 86,400 Q88,420 102,422 Q108,400 106,340 Q104,275 112,190Z" fill="#FF6B9D"/>
+                <path d="M102,180 Q90,260 94,360 Q96,365 100,358 Q96,260 108,188Z" fill="#FFB0D0" opacity=".22"/>
+            </g>
+            <g class="hair-sway-r">
+                <path d="M302,170 Q318,270 314,400 Q312,420 298,422 Q292,400 294,340 Q296,275 288,190Z" fill="#FF6B9D"/>
+                <path d="M298,180 Q310,260 306,360 Q304,365 300,358 Q304,260 292,188Z" fill="#FFB0D0" opacity=".22"/>
+            </g>
+
+            <!-- Ribbon -->
+            <g transform="translate(282,148) rotate(18)">
+                <ellipse cx="-9" cy="-7" rx="9" ry="6" fill="#00E5B0" transform="rotate(-25,-9,-7)"/>
+                <ellipse cx="9" cy="-7" rx="9" ry="6" fill="#00E5B0" transform="rotate(25,9,-7)"/>
+                <ellipse cx="0" cy="0" rx="5" ry="4" fill="#00C898"/>
+                <circle cx="0" cy="0" r="2.5" fill="#00FFD0"/>
+                <path d="M-3,4 Q-8,22 -5,32" stroke="#00C898" stroke-width="3" fill="none" stroke-linecap="round"/>
+                <path d="M3,4 Q8,20 6,30" stroke="#00C898" stroke-width="3" fill="none" stroke-linecap="round"/>
+            </g>
+        </svg>
+    </div>
+
+    <div class="emotion-badge" id="emoBadge">Normal</div>
+
+    <div class="config-toggle">
+        <button class="config-toggle-btn" id="cfgBtn" aria-label="ตั้งค่าบุคลิก">
+            <i class="fas fa-sliders"></i> ตั้งค่าบุคลิก
+        </button>
+        <div class="config-panel" id="cfgPanel">
+            <textarea id="personalityInput" placeholder="เขียนบุคลิกพิเศษของนมข้น เช่น ชอบพูดจ๊ะ ชอบแมว..."></textarea>
+        </div>
+    </div>
+</section>
+
+<!-- ====== RIGHT: CHAT PANEL ====== -->
+<main class="chat-panel">
+    <header class="chat-header">
+        <div class="chat-header-icon">ข</div>
+        <div>
+            <div class="chat-header-title">นมข้น</div>
+            <div class="chat-header-sub">ผู้ช่วย AI สุดน่ารัก เป็นของคุณคะ</div>
+        </div>
+    </header>
+
+    <div class="chat-stream" id="chatStream">
+        <!-- Welcome message -->
+        <div class="chat-row bot-row">
+            <div class="chat-avatar">ข</div>
+            <div class="chat-content">สวัสดีค่ะ! นมข้นพร้อมช่วยเหลือแล้ว ถามอะไรมาได้เลยนะคะ!</div>
+        </div>
+    </div>
+
+    <div class="input-zone">
+        <div class="input-bar">
+            <input type="text" id="chatInput" placeholder="พิมพ์ข้อความถึงนมข้น..." autocomplete="off" />
+            <button id="sendBtn" aria-label="ส่งข้อความ"><i class="fas fa-arrow-up"></i></button>
+        </div>
+    </div>
+</main>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
